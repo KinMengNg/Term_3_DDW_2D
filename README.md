@@ -9,7 +9,18 @@ How might we apply statistical modelling to enable Southeast Asian Governments &
 3) [Credits](https://github.com/KinMengNg/Term_3_DDW_2D/tree/main#include-credits)
 
 ## How to install and run
-1) 
+1) '''git clone '''
+2) Create a virtual environment and install all dependencies by
+''' pipenv install'''
+'''pipenv shell'''
+3) Now, you have all the depencies! Feel free to flask run now :-)
+
 ## How to use 
 
 ## Include Credits
+| Name | Portion                                                                                                                                           |
+|-------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Anton     | Lorem ipsap                                   |
+| Kin Meng     | Lorem ipsap                                   |
+| Aaron     | Lorem ipsap                                   |
+| Asyraf     | Lorem ipsap                                   |
