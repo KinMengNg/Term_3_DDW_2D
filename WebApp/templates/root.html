@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rice Price Prediction</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background-color: antiquewhite;
+      }
+      .div2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 30px;
+        transform: translate(-50%, -50%);
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div2">
+      <form action={{ url_for('result') }} , method="POST">
+        
+        <p>
+          Enter Rice Produced (tonnes):   <input type="number" name="Rice Produced" min="0" step="any" value="54031000"/>
+        </p>
+        <p>
+          Enter Inflation, consumer prices (annual %):   <input type="number" step="any" name="Inflation, consumer prices (annual %)" value="3.525805157"/>
+        </p>  
+        <p>
+            GDP per capita:   <input type="number" step="any" name="GDP per capita (constant 2015 US$)" value="3453.04943"/>
+        </p>  
+          
+        <p>
+          <input type="submit" value="Predict"/>
+        </p>
+        
+      </form>
+      <br />
+      <p>Prediction of Rice Price: {{result}}</p>
+    </div>
+  </body>
+</html>
