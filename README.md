@@ -24,3 +24,5 @@ Now, you have all the depencies! Feel free to flask run now :-)
 | Kin Meng     | Lorem ipsap                                   |
 | Aaron     | Lorem ipsap                                   |
 | Asyraf     | Lorem ipsap                                   |
+| Mike     | Lorem ipsap                                   |
+
