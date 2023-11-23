@@ -5,57 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rice Price Prediction</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        background-color: antiquewhite;
-      }
-      .div2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        padding: 30px;
-        transform: translate(-50%, -50%);
-        border: 1px solid black;
-      }
-    </style>
+    
   </head>
 
  -->
 {% extends "base.html" %}
 
 {% block app_content %}
-  <body>
-    <div class="div2">
-      <form action={{ url_for('result') }} , method="POST">
-        
-        <p>
-          Rice Produced (tonnes):   <input type="number" name="Rice Produced (tonnes)" min="0" step="any" value="19276346.63"/>
+    <div class = "container_div">
+      <div class="inner_div">
+        <form action="{{ url_for('result') }}" method="POST">
+  
+          <label for="RiceProduced" class="form-label">Rice Produced (tonnes)</label>
+          <input type="range" class="form-range " id="RiceProduced" name="Rice Produced (tonnes)" min = "0" max = "150000000" step = "10" value = "{{riceproducedinput}}"/> <!-- max goes to 150 million tonnes -->
+          <p id="RiceProdVal"></p>
+  
+          <label for="GDP" class="form-label">GDP per Capita (USD)</label>
+          <input type="range" class="form-range" id="GDP" min = "0" max = "50000" name="GDP per capita (constant 2015 US$)" step = "5" value = "{{gdpinput}}"/> <!-- max goes to 999,999 as highest in history was 140,000 -->
+          <p id="GDPVal"></p>
+  
+          <label for="ProducerPriceRice" class="form-label">Average Producer Price of Rice per kg (USD)</label>
+          <input type="range" class="form-range" id="ProducerPriceRice" min = "0" max = "50" name="Average Producer Price of Rice per kg (USD)" step = "0.1" value = "{{prodpriceinput}}" /> <!-- max goes to 999,999 -->
+          <p id="ProducerPriceRiceVal"></p>
+  
+          <label for="Population" class="form-label">Population Size</label>
+          <input type="range" class="form-range" id="Population" min = "0" max = "500000000" name="Population Size" step = "10" value = "{{popinput}}"/> <!-- max goes to 8 billion, as its total world population -->
+          <p id = "PopulationVal"></p>
+  
+          <label for="GasolinePrice" class="form-label" >Pump Price for gasoline per liter (USD)</label>
+          <input type="range" class="form-range" id="GasolinePrice" min = "0" max = "50" name="Pump price for gasoline (US$ per liter)" step = "0.1" value = "{{gasinput}}"/> <!-- max goes to a thousand-->
+          <p id = "GasolinePriceVal"></p>
+  
+          <input type="submit" class="btn btn-primary" value="Predict">
+          
+        </form>
+        <script>
+          var riceprodval = document.getElementById("RiceProdVal");
+          var riceprod = document.querySelector("#RiceProduced");
+  
+          var gdpval = document.getElementById("GDPVal");
+          var gdp = document.querySelector("#GDP");
+          
+          var pricericeval = document.getElementById("ProducerPriceRiceVal");
+          var pricerice = document.querySelector("#ProducerPriceRice");
+          
+          var popval = document.getElementById("PopulationVal");
+          var pop = document.querySelector("#Population");
+          
+          var gasolineval = document.getElementById("GasolinePriceVal");
+          var gasoline = document.querySelector("#GasolinePrice");
+          
+  
+          riceprodval.innerText= Number(riceprod.value).toLocaleString("en-US")
+          gdpval.innerText = Number(gdp.value).toLocaleString("en-US")
+          pricericeval.innerText = Number(pricerice.value).toLocaleString("en-US")
+          popval.innerText = Number(pop.value).toLocaleString("en-US")
+          gasolineval.innerText = Number(gasoline.value).toLocaleString("en-US")
+  
+  
+          riceprod.addEventListener("input", (event) => {riceprodval.innerText= Number(event.target.value).toLocaleString("en-US")});
+          gdp.addEventListener("input", (event) => {gdpval.innerText= Number(event.target.value).toLocaleString("en-US")});
+          pricerice.addEventListener("input", (event) => {pricericeval.innerText= Number(event.target.value).toLocaleString("en-US")});
+          pop.addEventListener("input", (event) => {popval.innerText= Number(event.target.value).toLocaleString("en-US")});
+          gasoline.addEventListener("input", (event) => {gasolineval.innerText= Number(event.target.value).toLocaleString("en-US")});
+        </script>
+        <br />
+        <p>Prediction of Average Consumer Price of Rice per kg (USD): {{result}}</p>
+      </div>
+
+    </div>
+    
+
+    {% endblock %}
+<!--   </body>
+<p>
+          Rice Produced (tonnes):   <input type="number" name="Rice Produced (tonnes)" min="0" step="any" value="19276346.63"/> 
         </p>
         <p>
           GDP per capita (constant 2015 US$):   <input type="number" step="any" name="GDP per capita (constant 2015 US$)" value="3289.472272"/>
         </p>  
         <p>
           Average Producer Price of Rice per kg (USD)   <input type="number" step="any" name="Average Producer Price of Rice per kg (USD)" value="0.36"/>
-        </p>  
-        <p>
-          Population Size:   <input type="number" step="any" name="Population Size" value="106738501"/>
-        </p>  
-        <p>
-          Pump price for gasoline (US$ per liter):   <input type="number" step="any" name="Pump price for gasoline (US$ per liter)" value="0.37"/>
-        </p> 
-
-        <p>
-          <input type="submit" value="Predict"/>
         </p>
-        
-      </form>
-      <br />
-      <p>Prediction of Average Consumer Price of Rice per kg (USD): {{result}}</p>
-    </div>
 
-    {% endblock %}
-<!--   </body>
+  
 </html> -->

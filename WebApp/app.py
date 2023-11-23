@@ -27,6 +27,7 @@ def root():
 
 # To convert the data into usable format and get the prediction
 def ValuePredictor(to_predict_list):
+    print(to_predict_list)
     # to_predict needs to be a dataframe
     df_features_to_predict = pd.DataFrame(to_predict_list)
     df_features_to_predict = df_features_to_predict.transpose()
@@ -52,16 +53,28 @@ def ValuePredictor(to_predict_list):
 # To send back data to the same html but with the predicted values this time
 @app.route("/", methods=["POST", "GET"])
 def result():
+    """try:"""
+
     if request.method == "POST":
         # To grab values from html form, this is the easiest way I could think of to convert it to a list
         to_predict_list = request.form.to_dict()
         to_predict_list = list(to_predict_list.values())
-        to_predict_list = list(map(float, to_predict_list))  # Convert to float
-        # print(to_predict_list)
+        inputlist = list(map(float, to_predict_list))  # Convert to float
+        print(inputlist)
+        result = round(float(ValuePredictor(inputlist)), 2)
+    return render_template(
+        "root.html",
+        result=result,
+        riceproducedinput=inputlist[0],
+        gdpinput=inputlist[1],
+        prodpriceinput=inputlist[2],
+        popinput=inputlist[3],
+        gasinput=inputlist[4],
+    )
 
-        result = round(float(ValuePredictor(to_predict_list)), 2)
 
-        return render_template("root.html", result=result)
+"""     except:
+        return render_template("root.html", result="ERROR") """
 
 
 if __name__ == "__main__":
