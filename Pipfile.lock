@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "eb3e848a7f8ed7557abe1df307b8ff167897f315009612e8ba8add20d90c35af"
+            "sha256": "8ce6193f8b658d58a2de7dd895a206d66fac66fc0e89e32ac5c0bd09588e6334"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -24,6 +24,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==1.7.0"
+        },
+        "bootstrap-flask": {
+            "hashes": [
+                "sha256:2505257518c2efa1df645b5d87b4dc62dd28f6b3c04130ba82d735890f307715",
+                "sha256:f94ba6309d61c058fb5fb581bc3344cef389a6da69cf655330d101fa4a161db7"
+            ],
+            "index": "pypi",
+            "version": "==2.3.2"
         },
         "click": {
             "hashes": [
@@ -561,7 +569,7 @@
                 "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"
             ],
             "index": "pypi",
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.8.2"
         },
         "pytz": {
@@ -652,7 +660,7 @@
                 "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"
             ],
             "index": "pypi",
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.16.0"
         },
         "threadpoolctl": {
@@ -681,6 +689,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==3.0.1"
+        },
+        "wtforms": {
+            "hashes": [
+                "sha256:5e51df8af9a60f6beead75efa10975e97768825a82146a65c7cbf5b915990620",
+                "sha256:ae7c54b29806c70f7bce8eb9f24afceb10ca5c32af3d9f04f74d2f66ccc5c7e0"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==3.1.1"
         }
     },
     "develop": {}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,6 +22,11 @@
       }
     </style>
   </head>
+
+ -->
+{% extends "base.html" %}
+
+{% block app_content %}
   <body>
     <div class="div2">
       <form action={{ url_for('result') }} , method="POST">
@@ -50,5 +55,7 @@
       <br />
       <p>Prediction of Average Consumer Price of Rice per kg (USD): {{result}}</p>
     </div>
-  </body>
-</html>
+
+    {% endblock %}
+<!--   </body>
+</html> -->
